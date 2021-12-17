@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OAIC-Crate Distribution</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/images/oaic-logo.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <noscript>
+    <link href="theme/css/no-js.css" type="text/css" rel="stylesheet">
+ </noscript>
+  <link href="assets/homePageTemplate/assets/css/base.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/base-responsive.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/grid.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/font.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/flexslider.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/assets/css/megamenu.css" rel="stylesheet" media="all" />
+   <link href="assets/homePageTemplate/assets/css/print.css" rel="stylesheet" media="print" />
+
+   <link href="assets/homePageTemplate/assets/css/megamenu.css" rel="stylesheet" media="all" />
+   <link href="assets/homePageTemplate/theme/css/site.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/theme/css/site-responsive.css" rel="stylesheet" media="all">
+   <link href="assets/homePageTemplate/theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
+   <link href="assets/homePageTemplate/theme/css/print.css" rel="stylesheet" type="text/css" media="print">
+   
+</head>
+<body>
+  <app-root></app-root>
+  <!-- <script src="assets/template/vendor/jquery/jquery.min.js"></script>  
+  <script src="assets/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/template/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+  <script src="assets/template/vendor/jquery.cookie/jquery.cookie.js"> </script>
+  <script src="assets/template/vendor/jquery-validation/jquery.validate.min.js"></script>
+  <script src="assets/template/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="assets/template/js/front.js"></script> -->
+
+
+
+  <script src="assets/homePageTemplate/assets/js/jquery-2.1.1.min.js"></script>
+  <script src="assets/homePageTemplate/assets/js/jquery-accessibleMegaMenu.js"></script>
+  <script src="assets/homePageTemplate/assets/js/framework.js"></script>
+  <script src="assets/homePageTemplate/assets/js/jquery.flexslider.js"></script>
+  <script src="assets/homePageTemplate/assets/js/font-size.js"></script>
+  <script src="assets/homePageTemplate/assets/js/swithcer.js"></script>
+  <script src="assets/homePageTemplate/theme/js/ma5gallery.js"></script>
+  <script src="assets/homePageTemplate/assets/js/megamenu.js"></script>
+  <script src="assets/homePageTemplate/theme/js/easyResponsiveTabs.js"></script>
+  <script src="assets/homePageTemplate/theme/js/custom.js"></script>
+
+
+  <script src="assets/homePageTemplate/js/SHA-256.js"></script>
+  <!-- <script>
+      const saltValue = {};
+      function getUniqueSaltValue() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  const response = JSON.parse(this.responseText);
+                  saltValue.slt = response.saltValue;
+              }
+          };
+          xhttp.open("GET", `/getSaltValue`, true);
+          xhttp.send();
+      }
+      // getUniqueSaltValue();
+      function login() {
+          var userId = document.getElementById('userId').value;
+          var password = document.getElementById('password').value;
+          if( (userId !== '') && (password !== '') ) {
+              // document.getElementById('password').value = SHA256(SHA256(password) + saltValue.slt);
+              document.getElementById('password').value = SHA256(password);
+              document.getElementById('loginForm').submit();
+          } else {
+              alert('Please enter valid credentials.');
+          }
+      }
+  </script> -->
+  
+  <script>
+   $(".inputb input").on("focus", function() {
+       $(this).addClass("focus");
+   });
+   $(".inputb input").on("blur", function() {
+       if($(this).val() == "") {
+           $(this).removeClass("focus");
+       }
+   });
+</script>
+</body>
+</html>

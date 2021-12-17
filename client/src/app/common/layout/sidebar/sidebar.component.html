@@ -1,0 +1,50 @@
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+      <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <div class="sidenav-header-inner text-center"><img src="assets/images/26ce8716.png" alt="person" class="img-fluid rounded-circle">
+          <h2 class="h5">{{ userName }}</h2><span>{{ userRole }}</span>
+        </div>
+        <div class="sidenav-header-logo"><a class="brand-small text-center"> <strong>C</strong><strong class="text-primary">D</strong></a></div>
+      </div>
+      <div class="main-menu">
+        <h5 class="sidenav-heading">Main</h5>
+        <!-- =========  ADMIN ========= -->
+        <ul id="side-main-menu" class="side-menu list-unstyled" *ngIf="userRole === 'ADMIN'">
+          <li routerLinkActive="active"><a href="#supplierDropdown" aria-expanded="false" data-toggle="collapse">
+            <i class="icon-user" aria-hidden="true"></i>Supplier </a>
+            <ul id="supplierDropdown" class="collapse list-unstyled ">
+              <li routerLinkActive="active"><a [routerLink]="['/admin/addSupplier']">Add Supplier</a></li>
+              <li routerLinkActive="active"><a [routerLink]="['/admin/viewSuppliersList']">View Suppliers</a></li>
+            </ul>
+          </li>
+          <li routerLinkActive="active"><a [routerLink]="['/admin/confirmReceivedCratesByAho']"> <i class="icon-interface-windows" aria-hidden="true"></i>Received by AHO                             </a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/admin/confirmedList']"> <i class="icon-grid" aria-hidden="true"></i>Confirmed List                             </a></li>
+        </ul>
+        <!-- =========  AHO ========= -->
+        <ul id="side-main-menu" class="side-menu list-unstyled" *ngIf="userRole === 'AHO'">
+          <li routerLinkActive="active"><a [routerLink]="['/aho/receiveCrates']"> <i class="icon-home" aria-hidden="true"></i>Receive Crate                             </a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/aho/crateDistribution']"> <i class="icon-grid" aria-hidden="true"></i>Crate Distribution                             </a></li>
+        </ul>
+        <!-- =========  DM ========= -->
+        <ul id="side-main-menu" class="side-menu list-unstyled" *ngIf="userRole === 'DM'">
+          <li routerLinkActive="active"><a [routerLink]="['/dm/confirmReceivedCrates']"> <i class="icon-home" aria-hidden="true"></i>Confirm Received Crate                             </a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/dm/confirmedListByDm']"> <i class="icon-grid" aria-hidden="true"></i>Confirmed List                             </a></li>
+        </ul>
+        <!-- =========  SUPPLIER ========= -->
+        <ul id="side-main-menu" class="side-menu list-unstyled" *ngIf="userRole === 'SUPPLIER'">
+          <li routerLinkActive="active"><a [routerLink]="['/supplier/supplytoBlock']"> <i class="icon-home" aria-hidden="true"></i>Delivery to Block                             </a></li>
+          <li routerLinkActive="active"><a [routerLink]="['/supplier/viewSupplyList']"> <i class="icon-grid" aria-hidden="true"></i>Delivery Report                             </a></li>
+        </ul>
+      </div>
+      <!-- <div class="admin-menu">
+        <h5 class="sidenav-heading">Second menu</h5>
+        <ul id="side-admin-menu" class="side-menu list-unstyled"> 
+          <li> <a href="#"> <i class="icon-screen"> </i>Demo</a></li>
+          <li> <a href="#"> <i class="icon-flask"> </i>Demo
+              <div class="badge badge-info">Special</div></a></li>
+          <li> <a href=""> <i class="icon-flask"> </i>Demo</a></li>
+          <li> <a href=""> <i class="icon-picture"> </i>Demo</a></li>
+        </ul>
+      </div> -->
+    </div>
+</nav>

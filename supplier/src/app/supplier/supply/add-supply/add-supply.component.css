@@ -1,0 +1,11 @@
+.user-details {
+    background-color: #cad2da;
+    border-radius: 7px;
+    margin: 0 0 7px 0px;
+    padding: 7px;
+    color: black;
+    font-size: medium;
+}
+label {
+    font-size: medium !important;
+}

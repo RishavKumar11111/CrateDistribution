@@ -1,0 +1,163 @@
+<section>
+    <div class="container-fluid">
+        <br>
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white"> Select financial year</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="workOrderNo">Financial year <span class="asterisk-mark">*</span>:</label>
+                        <select class="form-control" id="district" (change)="loadLotList();loadReceivedCrateList();" [(ngModel)]="finYear" required>
+                            <option value="" disabled selected>--Select--</option>
+                            <option *ngFor="let x of finYearList" [ngValue]="x">{{ x }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white"> Receive Crates</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center" *ngIf="workOrderList.length === 0" style="padding: 30px;">
+                    <strong style="color: red;font-size: large;padding: 10px;">No pending record found on {{ finYear }}</strong>
+                </div>
+                <table class="table table-hover table-striped" *ngIf="workOrderList.length !== 0">
+                <thead >
+                    <tr>
+                        <th scope="col">SL.</th>
+                        <th scope="col">LOT no.</th>
+                        <th scope="col">Worker-order no.</th>
+                        <th scope="col">Firm name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Vehicle</th>
+                        <th scope="col">Quanity</th>
+                        <th scope="col">Receive</th>
+                    </tr>
+                </thead>
+                <tbody >
+                <tr *ngFor="let x of workOrderList;let i = index" >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ x.lotNo }}</td>
+                    <td>{{ x.workOrderNo }}</td>
+                    <td>{{ x.firmName }}</td>
+                    <td>{{ x.deliveryDate | date: 'dd-MM-yyyy' }}</td>
+                    <td>
+                        {{ x.vehicleName }}
+                        <br>
+                        ({{ x.vehicleNo }})
+                    </td>
+                    <td>{{ x.totalQuantity }}</td>
+                    <td>
+                        <button mat-raised-button class="btn btn-success" (click)="showReceiveModal(x)" data-toggle="modal"
+                            data-target="#receiveModal">Receive</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white"> Received Crates List</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center" *ngIf="receivedCrateList.length === 0" style="padding: 30px;">
+                    <strong style="color: red;font-size: large;padding: 10px;">No crate received on {{ finYear }}</strong>
+                </div>
+                <table class="table table-hover table-striped" *ngIf="receivedCrateList.length !== 0">
+                <thead >
+                    <tr>
+                        <th scope="col">SL.</th>
+                        <th scope="col">W.O. no.</th>
+                        <th scope="col">LOT no.</th>
+                        <th scope="col">Firm name</th>
+                        <th scope="col">Receive date</th>
+                        <th scope="col">Total Quanity</th>
+                        <th scope="col">Received quantity</th>
+                        <th scope="col">Remark</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody >
+                <tr *ngFor="let x of receivedCrateList;let i = index" >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ x.workOrderNo }}</td>
+                    <td>{{ x.lotNo }}</td>
+                    <td>{{ x.firmName }}</td>
+                    <td>{{ x.receivedOn | date: 'dd-MM-yyyy' }}</td>
+                    <td>{{ x.totalQuantity }}</td>
+                    <td>{{ x.receivedQuantity }}</td>
+                    <td>{{ x.remark }}</td>
+                    <td>{{ x.status }}</td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="receiveModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document1">
+        <div class="modal-content">
+            <div class="modal-header deleteheader bg-primary">
+                <h3 class="modal-title text-white" id="ModalLabel">Enter received crate details</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tbody >
+                        <tr>
+                            <td>Worker-order no. :</td>
+                            <td>{{ selectedLot.workOrderNo }}</td>
+                        </tr>
+                        <tr>
+                            <td>LOT no. :</td>
+                            <td>{{ selectedLot.lotNo }}</td>
+                        </tr>              
+                        <tr>
+                            <td>Firm name :</td>
+                            <td>{{ selectedLot.firmName }}</td>
+                        </tr>              
+                        <tr>
+                            <td>Invoice number :</td>
+                            <td>{{ selectedLot.invoiceNo }}</td>
+                        </tr>              
+                        <tr>
+                            <td>Way bill number :</td>
+                            <td>{{ selectedLot.wayBillNo }}</td>
+                        </tr>
+                        <tr>
+                            <td>Total crate quantity:</td>
+                            <td>{{ selectedLot.totalQuantity }}</td>
+                        </tr>
+                        <tr>
+                            <td>Received crate quantity  :</td>
+                            <td>
+                                <input type="text" [(ngModel)]="selectedLot.receivedQuantity" class="form-control mat-elevation-z3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Remark :</td>
+                            <td>
+                                <input type="text" [(ngModel)]="selectedLot.remark" class="form-control mat-elevation-z3" placeholder="Enter any remark">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button mat-raised-button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>&nbsp;
+                <button mat-raised-button type="button" class="btn btn-success"(click)="receive()" data-dismiss="modal" >Receive </button>
+            </div>
+        </div>
+    </div>
+</div>

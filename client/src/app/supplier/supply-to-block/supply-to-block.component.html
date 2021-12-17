@@ -1,0 +1,254 @@
+<section>
+    <div class="container-fluid">
+        <mat-card class="mat-elevation-z5">
+            <mat-card-header color="primary">
+                <mat-card-title>Welcome {{ suplierDetails.firmName }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <strong>Work-Order number : </strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.workOrderNo }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>Firm name :</strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.firmName }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>PAN no. : </strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.panNo }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <strong>Crate quantity :</strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.itemQuantity }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>GSTN :</strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.GSTN }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>Mobile no. :</strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.mobileNo }}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <strong>Available crate quantity :</strong><label>  &nbsp;&nbsp;&nbsp; {{ totalAvailableCrateQuantity }}</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>Area of operation : </strong><label>  &nbsp;&nbsp;&nbsp; {{ suplierDetails.areaOfOperation.length }} blocks of {{ districtList.length }} Districts </label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <strong>LOT No. : {{ lotNo }}</strong><label>  &nbsp;&nbsp;&nbsp; </label>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="mat-elevation-z5" *ngIf="!selectAreaDiv">
+            <mat-card-header color="primary">
+                <mat-card-title>Enter Delivery details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="supplyForm" #supplyFormId>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="vehicleNo">Vehicle number <span class="asterisk-mark">*</span>:</label>
+                            <input type="text" class="form-control" id="vehicleNo" placeholder="Enter vehicle number" formControlName='vehicleNo'>
+                            <div *ngIf="vehicleNo.invalid && (vehicleNo.dirty || vehicleNo.touched)" class="alert alert-danger">
+                                <div *ngIf="vehicleNo.errors.required">
+                                    Vehicle number is required.
+                                </div>
+                                <div *ngIf="vehicleNo.errors.pattern">
+                                    VehicleNo number must be numeric/alphabet value or maximum 9 letter.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="vehicleName">Vehicle name/model <span class="asterisk-mark">*</span>:</label>
+                            <input type="text" class="form-control" id="vehicleName" placeholder="Enter model or name of the vehicle" formControlName='vehicleName'>
+                            <div *ngIf="vehicleName.invalid && (vehicleName.dirty || vehicleName.touched)" class="alert alert-danger">
+                                <div *ngIf="vehicleName.errors.required">
+                                    Vehicle model is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="invoiceNo">Invoice number <span class="asterisk-mark">*</span>:</label>
+                            <input type="text" class="form-control" id="invoiceNo" placeholder="Enter invoice number" formControlName='invoiceNo'>
+                            <div *ngIf="invoiceNo.invalid && (invoiceNo.dirty || invoiceNo.touched)" class="alert alert-danger">
+                                <div *ngIf="invoiceNo.errors.required">
+                                    Invoice number is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="wayBillNo">Way bill number <span class="asterisk-mark">*</span>:</label>
+                            <input type="text" class="form-control" id="wayBillNo" placeholder="Enter way bill number" formControlName='wayBillNo'>
+                            <div *ngIf="wayBillNo.invalid && (wayBillNo.dirty || wayBillNo.touched)" class="alert alert-danger">
+                                <div *ngIf="wayBillNo.errors.required">
+                                    Way bill is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="deliveryDate">Delivery date <span class="asterisk-mark">*</span>:</label>
+                            <input type="date" class="form-control" id="deliveryDate" placeholder="Enter date" formControlName='deliveryDate'>
+                            <div *ngIf="deliveryDate.invalid && (deliveryDate.dirty || deliveryDate.touched)" class="alert alert-danger">
+                                <div *ngIf="deliveryDate.errors.required">
+                                    Delivery date is required.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                                    <!-- <input class="form-control" matInput [matDatepicker]="picker">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker> -->
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button (click)="next();"> Next <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card class="mat-elevation-z5" *ngIf="selectAreaDiv">
+            <mat-card-header color="primary">
+                <mat-card-title>Select area</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="district">District <span class="asterisk-mark">*</span>:</label>
+                        <select class="form-control" id="district" (change)="loadBlock();" [(ngModel)]="selectedDistrict" [ngModelOptions]="{standalone: true}" required>
+                            <option value="" disabled selected>--Select--</option>
+                            <option *ngFor="let x of districtList" [ngValue]="x">{{ x.districtName }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-2">
+                    </div>
+                    <div class="form-group col-lg-4 text-center">
+                        <label for="district">Available :</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong class="l-font">{{ availableCrate }}</strong><label > &nbsp;crate</label>
+                        
+                    </div>
+                </div>
+                <mat-card class="mat-elevation-z5" *ngIf="selectedDistrict">
+                    <mat-card-header color="primary">
+                        <mat-card-title>Select area</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <table mat-table [dataSource]="blockList" matSort>
+                                <ng-container matColumnDef="slNo">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header> SL. </th>
+                                        <td mat-cell *matCellDef="let element; let i = index;"> 
+                                            {{ (paginatorRef.pageIndex * paginatorRef.pageSize) + (i + 1) }}
+                                        </td>
+                                        <td mat-footer-cell *matFooterCellDef></td>
+                                </ng-container>
+                                <ng-container matColumnDef="blockName">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Block name</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.blockName}} </td>
+                                        <td mat-footer-cell *matFooterCellDef> <strong class="l-font"> Total:</strong> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="blockCode">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Block code </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.blockCode}} </td>
+                                        <td mat-footer-cell *matFooterCellDef></td>
+                                </ng-container>
+                                <ng-container matColumnDef="enterQuantity">
+                                        <th mat-header-cell *matHeaderCellDef>Enter quantity </th>
+                                        <td mat-cell *matCellDef="let element; let i = index;">
+                                            <input type="number" class="form-control mat-elevation-z3" style="width: 60%;" [(ngModel)]="element.crateQuantity" (keyup)="checkCrateQuantity(element, i)" placeholder="Enter quantity to send {{element.blockName}} block">
+                                        </td>
+                                        <td mat-footer-cell *matFooterCellDef> 
+                                                <br>
+                                                <strong class="l-font float-left">{{ distWiseTotalQuantity }}</strong> 
+                                                <button mat-raised-button class="btn btn-primary float-right" (click)="addDistrict();"><i class="fas fa-plus" aria-hidden="true"></i> Add district</button>
+                                                <br><br>
+                                        </td>
+                                </ng-container>                    
+                            
+                                <tr mat-header-row *matHeaderRowDef="blockTableColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: blockTableColumns;"></tr>
+                                <tr mat-footer-row *matFooterRowDef="blockTableColumns"></tr>
+                                <!-- <tr class="mat-row" *matNoDataRow>
+                                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                                </tr> -->
+                            </table>
+                            <mat-paginator #paginatorRef [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="mat-elevation-z5">
+                    <mat-card-header color="primary">
+                        <mat-card-title>Selected areas</mat-card-title>
+                        <input class="float-right search-box form-control" (keyup)="applyAssignedBlockListFilter($event)" matInput placeholder="Filter" #aooInput>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="text-center" *ngIf="supplyForm.value['area'].length === 0" style="padding: 30px;">
+                            <strong style="color: red;font-size: large;padding: 10px;">Districts are not added</strong>
+                        </div>
+                        <div *ngIf="supplyForm.value['area'].length !== 0">
+                            <table mat-table [dataSource]="lotArea" matSort>
+                                <ng-container matColumnDef="slNo">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header> SL </th>
+                                        <td mat-cell *matCellDef="let element; let i = index;"> 
+                                            {{ (laPaginatorRef.pageIndex * laPaginatorRef.pageSize) + (i + 1) }}
+                                        </td>
+                                        <td mat-footer-cell *matFooterCellDef></td>
+                                </ng-container>
+                                <ng-container matColumnDef="district">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> District </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.districtName}} </td>
+                                    <td mat-footer-cell *matFooterCellDef> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="block">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Block </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.blockName}} </td>
+                                    <td mat-footer-cell *matFooterCellDef> <strong class="l-font"> Total quantity:</strong> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="quantity">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.crateQuantity}} </td>
+                                    <td mat-footer-cell *matFooterCellDef>
+                                        <strong class="l-font float-left">{{ supplyForm.value['totalQuantity'] }}</strong>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="remove">
+                                    <th mat-header-cell *matHeaderCellDef>Remove </th>
+                                    <td mat-cell *matCellDef="let element; let i = index;">
+                                        <button mat-raised-button class="btn btn-outline-danger" (click)="removeArea(i)"><i class="fas fa-trash" aria-hidden="true"></i></button>
+                                    </td>
+                                    <td mat-footer-cell *matFooterCellDef> 
+                                        
+                                    </td>
+                                </ng-container>                    
+                            
+                                <tr mat-header-row *matHeaderRowDef="lotAreaTableColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: lotAreaTableColumns;"></tr>
+                                <tr mat-footer-row *matFooterRowDef="lotAreaTableColumns"></tr>
+                                <!-- <tr class="mat-row" *matNoDataRow>
+                                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                                </tr> -->
+                            </table>
+                            <mat-paginator #laPaginatorRef [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-card-content>
+            <mat-card-actions>
+                <div>
+                    <button mat-raised-button class="float-left" (click)="back();"> <mat-icon>arrow_backward</mat-icon>Previous</button>
+                    <button mat-raised-button class="float-right" type="submit" (click)="onSubmit();"> Final distribution</button>
+                </div>
+                <br>
+            </mat-card-actions>
+        </mat-card>
+        <br>
+        <br>
+    </div>
+</section>

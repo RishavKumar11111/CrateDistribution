@@ -1,0 +1,70 @@
+
+<section>
+    <div class="container-fluid">
+        <mat-card class="mat-elevation-z5" *ngIf="showSuppliersList">
+            <mat-card-header color="primary">
+                <mat-card-title>Suppliers List</mat-card-title>
+                <input class="float-right search-box form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter" #input>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <table mat-table [dataSource]="supplierList" matSort>
+                        <ng-container matColumnDef="slNo">
+                                <th mat-header-cell *matHeaderCellDef> SL.</th>
+                                <td mat-cell *matCellDef="let element; let i = index;"> 
+                                    {{ (paginatorRef.pageIndex * paginatorRef.pageSize) + (i + 1) }}
+                                </td>
+                        </ng-container>
+                        <ng-container matColumnDef="workOrderNo">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Work-Order no. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.workOrderNo}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="itemQuantity">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Item quantity </th>
+                                <td mat-cell *matCellDef="let element"> {{element.itemQuantity}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="firmName">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Firm name </th>
+                                <td mat-cell *matCellDef="let element"> {{element.firmName}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mail-ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="panNo">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> PAN no. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.panNo}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="GSTN">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> GSTN </th>
+                                <td mat-cell *matCellDef="let element"> {{element.GSTN}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="areaOfOperation">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Area of operation </th>
+                                <td mat-cell *matCellDef="let element"> {{ element.blockListLength }} blocks of {{ element.districtListLength }} districts </td>
+                        </ng-container>
+                        <ng-container matColumnDef="edit">
+                                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                                <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="edit(element.userId)"><mat-icon>edit</mat-icon></button> </td>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="remove">
+                                <th mat-header-cell *matHeaderCellDef> Remove </th>
+                                <td mat-cell *matCellDef="let element"> <button mat-raised-button class="btn btn-danger" (click)="remove(element.userId)"><i class="fas fa-trash" aria-hidden="true"></i></button> </td>
+                        </ng-container> -->                    
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                          </tr>
+                    </table>
+                    <mat-paginator #paginatorRef [pageSizeOptions]="[10, 20, 25]"></mat-paginator>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <app-update-supplier [supplierId]="selectedSupplierId" (backEvent)="backToList()" *ngIf="showEditPage"></app-update-supplier>
+        <br>
+    <br>
+    <br>
+    <br>
+    </div>
+</section>

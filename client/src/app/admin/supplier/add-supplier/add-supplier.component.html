@@ -1,0 +1,25 @@
+
+    <section>
+        <div class="container-fluid">
+            <mat-card class="mat-elevation-z5">
+                <mat-card-header color="primary">
+                    <mat-card-title>
+                        <span *ngIf="!showAreaOfOperationDiv">Enter supplier details</span>
+                        <span *ngIf="showAreaOfOperationDiv">Add area of operation</span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <app-supplier-form *ngIf="!showAreaOfOperationDiv" [supplierForm]="supplierForm" #fromId></app-supplier-form>
+                    <app-add-area-of-operation *ngIf="showAreaOfOperationDiv" [supplierForm]="aoopList"></app-add-area-of-operation>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div *ngIf="showAreaOfOperationDiv">
+                        <button class="btn btn-primary float-left" (click)="back();" mat-raised-button > <mat-icon>arrow_backward</mat-icon>Previous</button>
+                        <button class="btn btn-primary float-right" type="submit" (click)="onSubmit()" mat-raised-button >Final add new supplier</button>
+                    </div>
+                    <button *ngIf="!showAreaOfOperationDiv" mat-raised-button (click)="next();"> Next<mat-icon>arrow_forward</mat-icon></button>
+                    <br>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </section>

@@ -1,0 +1,30 @@
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+      <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <div class="sidenav-header-inner text-center">
+          <img src="assets/26ce8716.png" alt="person" class="img-fluid rounded-circle">
+          <h2 class="h5">ADMIN</h2>
+        </div>
+      </div>
+      <div class="main-menu">
+        <h5 class="sidenav-heading">MENU</h5>
+        <ul id="side-main-menu" class="side-menu list-unstyled">
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin/addSupplier']" class="nav-link"> <i class="fas fa-user" aria-hidden="true"> </i>
+              <span>Add Supplier</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin/viewSupplier']" class="nav-link"> <i class="fas fa-edit" aria-hidden="true"> </i>
+              <span>View Suppliers</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin/crateReceiveConfirmation']" class="nav-link"> <i class="fas fa-download" aria-hidden="true"> </i>
+              <span>Received by AHO</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

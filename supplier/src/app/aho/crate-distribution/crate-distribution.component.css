@@ -1,0 +1,8 @@
+.preview-table > thead > tr > th{
+    color: black;
+    font-size: medium !important;
+}
+.preview-table > tbody > tr > td{
+    color: black;
+    font-size: medium !important;
+}

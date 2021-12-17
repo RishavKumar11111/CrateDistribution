@@ -1,0 +1,24 @@
+<mat-card class="mat-elevation-z5">
+    <mat-card-header color="primary">
+        <mat-card-title>
+            <span *ngIf="!showAreaOfOperationDiv">Update supplier details</span>
+            <span *ngIf="showAreaOfOperationDiv">Update area of operation</span>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-supplier-form *ngIf="!showAreaOfOperationDiv" [supplierForm]="supplierForm" #fromId></app-supplier-form>
+        <app-add-area-of-operation *ngIf="showAreaOfOperationDiv" [supplierForm]="aoopList"></app-add-area-of-operation>
+    </mat-card-content>
+    <mat-card-actions>
+        <div *ngIf="showAreaOfOperationDiv">
+            <button class="float-left" (click)="back();" mat-raised-button > <mat-icon>arrow_backward</mat-icon>Previous</button>
+            <button class="float-right" type="submit" (click)="onSubmit()" mat-raised-button >Final update supplier details</button>
+        </div>
+        <div *ngIf="!showAreaOfOperationDiv">
+            <button class="float-left" (click)="backToList();" mat-raised-button > <mat-icon>arrow_backward</mat-icon>Back to List</button>
+            <button class="float-right" mat-raised-button (click)="next();"> Next<mat-icon>arrow_forward</mat-icon></button>
+        </div>
+        
+        <br>
+    </mat-card-actions>
+</mat-card>

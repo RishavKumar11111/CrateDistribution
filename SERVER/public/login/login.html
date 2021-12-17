@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="wp-content/uploads/form-templates/login_form_4/css/main.css">
+	<script src="wp-content/uploads/form-templates/login_form_4/js/jquery-3.5.1.slim.min.js"></script>
+<!--===============================================================================================-->	
+</head>
+<body>
+	<form method="POST" action="/login" class="login-form" autocomplete="OFF" id="loginForm">
+		<h1>Login</h1>
+		<div class="inputb">
+			<label for="userId">User ID:</label>
+			<input class="forminput" type="text" id="userId" name="userId">
+			<span data-placeholder-1="User ID" data-placeholder-2="Enter your User ID:"></span>
+		</div>
+		<div class="inputb">
+			<label for="password">Password</label>
+			<input class="forminput hide-pwd" type="password" id="password" name="password">
+			<span data-placeholder-1="Password" data-placeholder-2="Password:"></span>
+		</div>
+		<input type="button" class="loginbtn" value="Login" onclick="login();">
+		<div class="bottom-text">
+			<span class="forgotpwd">Forgot <a href="#">Password</a>?</span><br>
+			<span class="signup">Don't have an account? <a href="#">Sign up</a></span>
+		</div>
+	</form>
+	<script>
+		$(".inputb input").on("focus", function() {
+			$(this).addClass("focus");
+		});
+		$(".inputb input").on("blur", function() {
+			if($(this).val() == "") {
+				$(this).removeClass("focus");
+			}
+		});
+	</script>
+
+<script src="../js/SHA-256.js"></script>
+<script>
+	const saltValue = {};
+	function getUniqueSaltValue() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				const response = JSON.parse(this.responseText);
+				saltValue.slt = response.saltValue;
+			}
+		};
+		xhttp.open("GET", `/getSaltValue`, true);
+		xhttp.send();
+	}
+	// getUniqueSaltValue();
+	function login() {
+		var userId = document.getElementById('userId').value;
+		var password = document.getElementById('password').value;
+		if( (userId !== '') && (password !== '') ) {
+			// document.getElementById('password').value = SHA256(SHA256(password) + saltValue.slt);
+			document.getElementById('password').value = SHA256(password);
+			document.getElementById('loginForm').submit();
+		} else {
+			alert('Please enter valid credentials.');
+		}
+	}
+</script>
+</html>

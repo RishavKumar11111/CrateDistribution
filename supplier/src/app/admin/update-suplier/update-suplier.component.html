@@ -1,0 +1,65 @@
+
+<section>
+    <div class="container-fluid">
+    <br>
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white">Enter Supplier details</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="suplierForm" (ngSubmit)="onSubmit()">
+                    
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="firmid">Firm Id</label>
+                            <input type="number" class="form-control" id="firmid" placeholder="Enter Your FirmID"
+                                formControlName='firmID'>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="firmName">Firm Name</label>
+                            <input type="text" class="form-control" id="firmName" placeholder="Enter Your Firm Name"
+                                formControlName='firmName'>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for=" itemQuantity">Item Quantity</label>
+                            <input type="number" class="form-control" id="inputPassword4" placeholder="Item Quantity"
+                                formControlName='itemQuantity'>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="workOrder_number ">WorkOrder number</label>
+                            <input type="text" class="form-control" id="firmName" placeholder="Enter Your WorkOrder number"
+                                formControlName='workOrder_number'>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for=" mobile_no">Mobile No</label>
+                            <input type="number" class="form-control" id="inputPassword4" placeholder="Enter Your Mobile No"
+                                formControlName='mobile_no'>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for=" GSTN "> GSTN</label>
+                            <input type="text" class="form-control" id="firmName" placeholder="Enter Your GSTN"
+                                formControlName='GSTN'>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for=" aadhar_no">Aadhar No</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="Enter Your Aadhar No"
+                                formControlName='aadhar_no'>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                
+            <div class="card-footer">
+                <button class="btn btn-primary btn-lg float-right" type="submit" (click)="onSubmit();"> Update</button> 
+            </div>
+        </div>
+        </div>
+</section>

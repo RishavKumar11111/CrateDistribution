@@ -1,0 +1,236 @@
+<section>
+    <div class="container-fluid">
+        <br>
+        <form [formGroup]="distributionForm" (ngSubmit)='onSubmit()' #distributionFormId>
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h4 class="text-white">Select details</h4>
+                    </div>
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="finYear">Financial year <span class="asterisk-mark">*</span>:</label>
+                                    <select class="form-control" id="finYear" formControlName="finYear" (change)="loadWorkOrderList();loadDistributedCrateList();" required >
+                                        <option value="" disabled selected>--Select--</option>
+                                        <option *ngFor='let x of finYearList' [ngValue]="x">{{ x }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="woNo">Select work-order <span class="asterisk-mark">*</span>:</label>
+                                    <select class="form-control" id="woNo" formControlName="workOrderNo" (change)="loadAvailableCrateQuantity()" required >
+                                        <option value="" disabled selected>--Select--</option>
+                                        <option *ngFor='let x of workOrderList' [ngValue]="x.workOrderNo">{{x.workOrderNo}}</option>
+                                    </select>
+                                    <div *ngIf="workOrderNoVal.invalid && (workOrderNoVal.dirty || workOrderNoVal.touched)" class="alert alert-danger">
+                                        <div *ngIf="workOrderNoVal.errors.required">
+                                            Work-order number is required.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <mat-card class="example-card mat-elevation-z5" *ngIf="workOrderNo">
+                                <mat-card-content>
+                                    <table class="table table-hover table-striped preview-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Total received quantity</th>
+                                                <th scope="col">Crates received from {{ workOrderNo }}</th>
+                                                <th scope="col"> Distributed</th>
+                                                <th scope="col"> Available</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            <tr>
+                                                <td>{{ totalReceivedQuantity }}</td>
+                                                <td>{{ receivedQuantity }}</td>
+                                                <td>{{ distrbutedQuantity }}</td>
+                                                <td>{{ receivedQuantity - distrbutedQuantity }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </mat-card-content>
+                            </mat-card>
+                    </div>
+                </div> 
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h4 class="text-white">Crate distribution</h4>
+                    </div>
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="wshg">Select WSHG <span class="asterisk-mark">*</span>:</label>
+                                    <select class="form-control" id="wshg" [formControl]="wshg" (change)="addWSHG();" required>
+                                        <option value="" disabled selected>--Select--</option>
+                                        <option *ngFor='let x of wshgList' [ngValue]="x">{{ x.groupName }}</option>
+                                    </select>
+                                    <div *ngIf="wshg.invalid && (wshg.dirty || wshg.touched)" class="alert alert-danger">
+                                        <div *ngIf="wshg.errors.required">
+                                            WSHG is required.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="noOfCrates">No. of crates giving<span class="asterisk-mark">*</span>:</label>
+                                    <input type="number" class="form-control" id="noOfCrates" placeholder="Enter number of crates" formControlName='noOfCrates'>
+                                    <div *ngIf="noOfCratesVal.invalid && (noOfCratesVal.dirty || noOfCratesVal.touched)" class="alert alert-danger">
+                                        <div *ngIf="noOfCratesVal.errors.required">
+                                            Number of crates is required.
+                                        </div>
+                                        <div *ngIf="noOfCratesVal.errors.min">
+                                            Minimum 1 crate can be allowed.
+                                        </div>
+                                        <div *ngIf="noOfCratesVal.errors.max">
+                                            Maximum 4 crate can be allowed.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="farmerID">Enter farmer-ID <span class="asterisk-mark">*</span>:</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><b>{{preDistNameOfFarmerID}}/</b></span>
+                                        </div>
+                                        <input type="number" id="farmerID" class="form-control" (keyup)="searchFarmerIdDetails();" formControlName='farmerId'
+                                            placeholder="Enter Farmer ID" maxlength="16" required>
+                                    </div>
+                                    <div *ngIf="farmerIdVal.invalid && (farmerIdVal.dirty || farmerIdVal.touched)" class="alert alert-danger">
+                                        <div *ngIf="farmerIdVal.errors.required">
+                                            Farmer-ID is required.
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isFarmerAlreadyReceiverate" class="alert alert-danger">
+                                        This farmer already receive crates.
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6" *ngIf="farmerName">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Farmer name</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col"> Adhhar number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            <tr>
+                                                <td>{{ farmerName }}</td>
+                                                <td>{{ farmerGender }}</td>
+                                                <td>{{ farmerAdhharNo }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>  
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <section class="example-section">
+                                    <label class="example-margin">Select owner <span class="asterisk-mark">*</span>:</label><br>
+                                    <mat-radio-group formControlName='owner'>
+                                      <mat-radio-button class="example-margin" value="Self">Self</mat-radio-button>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-radio-button class="example-margin" value="Father">Father</mat-radio-button>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-radio-button class="example-margin" value="Husband">Husband</mat-radio-button>
+                                    </mat-radio-group>
+                                  </section>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <section class="example-section">
+                                    <label class="example-margin">Farmer share <span class="asterisk-mark">*</span>:</label><br>
+                                    <mat-radio-group formControlName='farmerShare'>
+                                        <mat-radio-button class="example-margin" value="Paid">Paid</mat-radio-button>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-radio-button class="example-margin" value="Not paid">Not paid</mat-radio-button>
+                                    </mat-radio-group>
+                                  </section>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="owner != 'Self'">
+                            <div class="form-group col-md-6">
+                                <label for="otherName">Enter {{ owner }}'s name <span class="asterisk-mark">*</span>:</label>
+                                <input type="text" class="form-control" id="otherName" placeholder="Enter person Name " formControlName='otherName'>
+                                <div *ngIf="otherNameVal.invalid && (otherNameVal.dirty || otherNameVal.touched)" class="alert alert-danger">
+                                    <div *ngIf="otherNameVal.errors.required">
+                                        Name is required.
+                                    </div>
+                                    <div *ngIf="otherNameVal.errors.pattern">
+                                        Enter only alphabets.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="otherAadharNo">Enter {{ owner }}'s aadhar number <span class="asterisk-mark">*</span>:</label>
+                                <input type="number"class="form-control" id="otherAadharNo" placeholder="Enter Aadhar number" formControlName='otherAadharNo' minlength="12" maxlength="12">
+                                <div *ngIf="otherAadharNoVal.invalid && (otherAadharNoVal.dirty || otherAadharNoVal.touched)" class="alert alert-danger">
+                                    <div *ngIf="otherAadharNoVal.errors.required">
+                                        Aadhar number is required.
+                                    </div>
+                                    <div *ngIf="otherAadharNoVal.errors.min">
+                                        Enter valid aadhar number.
+                                    </div>
+                                    <div *ngIf="otherAadharNoVal.errors.max">
+                                        Enter valid aadhar number.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="card-footer text-center">
+                                <button mat-raised-button class="btn btn-primary" type="submit" [disabled]="farmerGender === 'Male' && distributionForm.value['owner'] === 'Self'"> Distribute </button>
+                                <strong class="no-record-found" *ngIf="farmerGender === 'Male'">Not allowed to male farmer</strong>
+                                <strong class="no-record-found" *ngIf="isFarmerAlreadyReceiverate">This farmer already receive crates</strong>
+                    </div>
+                </div>
+        </form>
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white float-left">Distributed crate list</h4>
+                <input class="float-right search-box form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter" #input>
+            </div>
+            <div class="card-body mat-elevation-z8 table-card">
+                    <table mat-table [dataSource]="distributedCrateList" matSort>
+                        <ng-container matColumnDef="slNo">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> SL.</th>
+                                <td mat-cell *matCellDef="let element; let i = index;"> 
+                                    {{ (paginatorRef.pageIndex * paginatorRef.pageSize) + (i + 1) }}
+                                </td>
+                        </ng-container>
+                        <ng-container matColumnDef="distributedOn">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Distributed on </th>
+                                <td mat-cell *matCellDef="let element"> {{ element.distributedOn | date: 'dd-MM-yyyy' }} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="farmer">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Farmer </th>
+                                <td mat-cell *matCellDef="let element"> {{element.farmerName}} <br>( {{ element.farmerId }} )</td>
+                        </ng-container>
+                        <ng-container matColumnDef="owner">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Owner </th>
+                                <td mat-cell *matCellDef="let element"> {{ element.owner }} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="wshg">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> WSHG </th>
+                                <td mat-cell *matCellDef="let element"> {{ element.wshgGroupName }} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="noOfCrates">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Number of crates </th>
+                                <td mat-cell *matCellDef="let element"> {{ element.noOfCrates }} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="view">
+                                <th mat-header-cell *matHeaderCellDef> View details </th>
+                                <td mat-cell *matCellDef="let element"> <button mat-raised-button class="btn btn-primary" (click)="viewDetails(element)"><i class="fas fa-bars" aria-hidden="true"></i></button> </td>
+                        </ng-container>
+                    
+                        <tr mat-header-row *matHeaderRowDef="distributedCrateListColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: distributedCrateListColumns;"></tr>
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                          </tr>
+                    </table>
+                    <mat-paginator #paginatorRef [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+       
+    </div>
+    <br><br><br><br><br>
+</section>

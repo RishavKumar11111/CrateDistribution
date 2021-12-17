@@ -1,0 +1,45 @@
+
+<div class="breadcrumb-holder">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"></a></li>
+        </ul>
+    </div>
+</div>
+<section>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h4 class="text-white">LOT List</h4>
+            </div>
+            <div class="card-body table-card">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead class="bg-light">
+                            <tr class="border-1">
+                                <th>SL.</th>
+                                <th>LOT no.</th>
+                                <th>Date</th>
+                                <th>Vehicle no.</th>                                
+                                <th>Vehicle model</th>
+                                <th>Area</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let x of result; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ x.lotNo }}</td>
+                                <td>{{ x.deliveryDate | date:'dd-MM-yyyy' }}</td>
+                                <td>{{ x.vehicleNo }}</td>
+                                <td>{{ x.vehicleName }}</td>
+                                <td>{{ x.area.length }} Blocks</td>
+                                <td>{{ x.status }}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br><br><br>

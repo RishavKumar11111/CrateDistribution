@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.btn {
+    border-radius: 4px !important;
+  }
+  .card {
+    border-radius: 7px !important;
+  }
+  .card>.card-header {
+    border-radius: 7px 7px 0 0 !important;
+  }
+  .card>.card-footer {
+    border-radius: 0 0 7px 7px !important;
+  }
+  .form-control {
+    border-radius: 7px !important;
+  }
+  .card-header h6{
+      color: white;
+      font-size: 18px;
+    }
+    .asterisk-mark {
+      color: red;
+      font-weight: bold;
+    }
+    .main-content {
+        min-height: 500px !important;
+    }
+    .main-content-container {
+        min-height: 700px;
+    }
+    .no-record-found {
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .modal .modal-header h5 {
+      color: white !important;
+    }
+    .modal .modal-header .close {
+      color: black !important;
+    }
+    .color {
+      color: red;
+    }
+    .form-control{
+      border-color: lightgrey !important;
+      background-color: white !important;
+    }  
+    .search-header {
+      height: 57px;
+    }
+    .search-header .input-group{
+      margin-top: -6px;
+    }
+    .table-card {
+      padding: 0 !important;
+    }
+    .top-back {
+      margin-top: 9px;
+      margin-bottom: 9px;
+    }
+  
+.alerterr{
+      color: red;
+      font-size: small;
+  }
+  .asteric-mark {
+    color: red;
+    font-weight: bold;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+
+
+
+/* NEW  */
+.search-box {
+    width: 30% !important;
+    margin-top: -8px;
+    margin-bottom: -10px;
+}
+table {
+    width: 100%;
+  }
+.l-font {
+  font-size: large;
+}
+.no-record-mat-table {
+  padding: 20px;
+    color: red;
+    font-weight: bold;
+    font-size: large;
+}

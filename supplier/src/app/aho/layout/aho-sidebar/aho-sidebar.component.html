@@ -1,0 +1,25 @@
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+      <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <div class="sidenav-header-inner text-center">
+          <img src="assets/26ce8716.png" alt="person" class="img-fluid rounded-circle">
+          <h2 class="h5">AHO</h2>
+        </div>
+      </div>
+      <div class="main-menu">
+        <h5 class="sidenav-heading">MENU</h5>
+        <ul id="side-main-menu" class="side-menu list-unstyled">
+          <li routerLinkActive="active">
+            <a [routerLink]="['/aho/receiveCrates']" class="nav-link"> <i class="fas fa-download" aria-hidden="true"> </i>
+              <span>Receive Crate</span>
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/aho/crateDistribution']" class="nav-link"> <i class="fas fa-share" aria-hidden="true"> </i>
+              <span>Crate Distribution</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,6 @@
+.side-navbar li a[aria-expanded="true"]::before {
+    content: none !important;
+}
+.sidenav-heading{
+    margin-left: 20px;
+}

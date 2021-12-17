@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="format-detection" content="telephone=no" />
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png">
+   <link rel="icon" href="images/oaic-logo.png">
+   <title>Create Distribution</title>
+   <!-- Custom styles for this template -->
+   <link href="assets/css/base.css" rel="stylesheet" media="all">
+   <link href="assets/css/base-responsive.css" rel="stylesheet" media="all">
+   <link href="assets/css/grid.css" rel="stylesheet" media="all">
+   <link href="assets/css/font.css" rel="stylesheet" media="all">
+   <link href="assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+   <link href="assets/css/flexslider.css" rel="stylesheet" media="all">
+   <link href="assets/css/megamenu.css" rel="stylesheet" media="all" />
+   <link href="assets/css/print.css" rel="stylesheet" media="print" />
+   <!-- Theme styles for this template -->
+   <link href="assets/css/megamenu.css" rel="stylesheet" media="all" />
+   <link href="theme/css/site.css" rel="stylesheet" media="all">
+   <link href="theme/css/site-responsive.css" rel="stylesheet" media="all">
+   <link href="theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
+   <link href="theme/css/print.css" rel="stylesheet" type="text/css" media="print">
+   <noscript>
+      <link href="theme/css/no-js.css" type="text/css" rel="stylesheet">
+   </noscript>
+
+   <style>
+      .minister-image>img {
+         max-width: 137px;
+      }
+      .prime:after {
+         display: none;
+      }
+      .fixed-banner {
+         position: absolute;
+         z-index: 1;
+         width: 30%;
+         left: 0;
+         bottom: 0;
+      }
+      .fixed-text {
+         position: absolute;
+         z-index: 1;
+         width: 70%;
+         right: 0;
+         bottom: 45%;
+         font-size: 3.5vw;
+         text-shadow: -5px 0px black;
+         color: bisque;
+         font-weight: bold;
+      }
+      .gallery-heading {
+         left: auto;
+         right: 1px !important;
+      }
+      .banner-image {
+         width: 1800px;
+         height: 450px;
+         filter: blur(1.5px);
+      }
+   </style>
+   <!-- LOGIN -->
+   <style>
+       
+.login-form {
+	width: 360px;
+	height: 100%;
+	background: #ffffff;
+	padding: 7px 40px;
+	border-radius: 1px;
+	position: relative;
+	z-index: 0;
+    margin: 0px auto;
+    margin-top: 24px;
+}
+
+.login-form h1 {
+	text-align: center;
+	margin-bottom: 32px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.inputb {
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	margin: 32px 0px;
+}
+
+.inputb label {
+	display: none;
+}
+
+.inputb .forminput {
+	font-size: 15px;
+	color: #333;
+	width: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0px 5px;
+	height: 40px;
+}
+
+.inputb span::before {
+	content: attr(data-placeholder-1);
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: 0.5s;
+}
+
+.inputb span::after {
+	content: '';
+	width: 0%;
+	height: 2px;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	background: linear-gradient(120deg, #3498db, #8e44ad);
+	transition: 0.5s;
+}
+
+.focus + span::before {
+	content: attr(data-placeholder-2);
+	top: -5px;
+	font-size: 11px;
+	color: #1E71A9;
+	font-weight: 500;
+}
+
+.focus + span::after {
+	width: 100%;
+}
+
+.loginbtn {
+	display: block;
+	width: 100%;
+	height: 50px;
+	border: none;
+	background: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+	background-size: 200%;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	transition: 0.5s;
+	font-size: 16px;
+}
+
+.loginbtn:hover {
+	background-position: right;
+}
+
+.bottom-text {
+	margin-top: 26px;
+	text-align: center;
+	font-size: 13px;
+}
+
+.bottom-text a {
+	color: #1A6393;
+	font-weight: 500;
+}
+
+.bottom-text a:hover {
+	text-decoration: underline;
+}
+
+.bottom-text .forgotpwd,
+.bottom-text .signup {
+	display: block;
+	color: #6E6E6E;
+}
+
+
+   </style>
+
+   
+</head>
+
+<body>
+   <div id="fb-root"></div>
+   <header>
+      <div class="region region-header-top">
+         <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
+            <noscript class="no_scr">"JzavaScript is a standard programming language that is included to provide
+               interactive features, Kindly enable Javascript in your browser. For details visit help page"
+            </noscript>
+            <div class="wrapper common-wrapper">
+               <div class="container common-container four_content top-header">
+                  <div class="common-left clearfix">
+                     <ul>
+                        <li class="gov-india"><span class="responsive_go_hindi" lang="hi"><a title="ଓଡିଶା ସରକାର">ଓଡିଶା
+                                 ସରକାର</a></span> </li>
+                        <li class="ministry"><span class="li_eng responsive_go_eng"><a
+                                 title="Government of odisha">Government of odisha</a></span></li>
+                     </ul>
+                  </div>
+                  <div class="common-right clearfix">
+                     <ul id="header-nav">
+                        <li class="ico-skip cf"><a href="#skipCont" title="">Skip to main content</a>
+                        </li>
+                        <li class="ico-site-search cf">
+                           <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
+                              <img class="top" src="assets/images/ico-site-search.png" alt="Site Search" /></a>
+                           <div class="search-drop both-search">
+                              <div class="google-find">
+                                 <form method="get" action="http://www.google.com/search" target="_blank">
+                                    <label for="search_key_g" class="notdisplay">Search</label>
+                                    <input type="text" name="q" value="" id="search_key_g" />
+                                    <input type="submit" value="Search" class="submit" />
+                                    <div class="">
+                                       <input type="radio" name="sitesearch" value="" id="the_web" />
+                                       <label for="the_web">The Web</label>
+                                       <input type="radio" name="sitesearch" value="india.gov.in" checked
+                                          id="the_domain" /> <label for="the_domain"> INDIA.GOV.IN</label>
+                                    </div>
+                                 </form>
+                              </div>
+                              <div class="find">
+                                 <form name="searchForm">
+                                    <label for="search_key" class="notdisplay">Search</label>
+                                    <input type="text" name="search_key" id="search_key" onKeyUp="autoComplete()"
+                                       autocomplete="off" required />
+                                    <input type="submit" value="Search" class="bttn-search" />
+                                 </form>
+                                 <div id="auto_suggesion"></div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="ico-accessibility cf">
+                           <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
+                              <img class="top" src="assets/images/ico-accessibility.png" alt="Accessibility Dropdown" />
+                           </a>
+                           <ul style="visibility: hidden;">
+                              <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size"
+                                    href="javascript:void(0);">A<sup>+</sup>
+                                 </a>
+                              </li>
+                              <li> <a onClick="set_font_size()" title="Reset font size"
+                                    href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
+                              <li> <a onClick="set_font_size(&#39;decrease&#39;)" title="Decrease font size"
+                                    href="javascript:void(0);">A<sup>-</sup></a> </li>
+                              <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a>
+                              </li>
+                              <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast"
+                                    style="display: none;">A</a> </li>
+                           </ul>
+                        </li>
+                        <li class="ico-social cf">
+                           <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
+                              <img class="top" src="assets/images/ico-social.png" alt="Social Medias" /></a>
+                           <ul>
+                              <li><a target="_blank" title="External Link that opens in a new window"
+                                    href="http://www.facebook.com/"><img alt="Facebook Page"
+                                       src="assets/images/ico-facebook.png"></a></li>
+                              <li><a target="_blank" title="External Link that opens in a new window"
+                                    href="http://www.twitter.com/"><img alt="Twitter Page"
+                                       src="assets/images/ico-twitter.png"></a></li>
+                              <li><a target="_blank" title="External Link that opens in a new window"
+                                    href="http://www.youtube.com/"><img alt="youtube Page"
+                                       src="assets/images/ico-youtube.png"></a></li>
+                           </ul>
+                        </li>
+                        <li class="ico-sitemap cf"><a href="#" title="Sitemap">
+                              <img class="top" src="assets/images/ico-sitemap.png" alt="Sitemap" /></a>
+                        </li>
+                        <li class="hindi cmf_lan d-hide">
+                           <label class="de-lag">
+                              <span style="display: none;">Language</span>
+                              <select title="Select Language">
+                                 <option>English</option>
+                                 <option>ଓଡ଼ିଆ</option>
+                              </select>
+                           </label>
+                        </li>
+                        <li class="hindi cmf_lan m-hide">
+                           <a href="javascript:;" title="Select Language">Language</a>
+                           <ul>
+                              <li><a target="_blank" href="#" lang="hi" class="alink"
+                                    title="Click here for हिन्दी version.">हिन्दी</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <p id="scroll" style="display: none;left:5px"><span></span></p>
+      </div>
+      <!--Top-Header Section end-->
+      <section class="wrapper header-wrapper">
+         <div class="container common-container four_content  header-container">
+            <p class="logo">
+               <a href="index.html" title="Home" rel="home" class="header__logo" id="logo">
+               <img class="" src="images/oaic-logo.png" alt="OAIC" >
+               <em>
+                  <span>ଓଡିଶା ଶିଳ୍ପ କୃଷି ନିଗମ </span>
+                  <span> Odisha Agro Industries Corporation Limited</span>
+                  <label style="font-size: small;">A Govt.of Odisha Undertaking</label>
+               </em>
+               </a>
+            </p>
+            <div class="header-right clearfix">
+                <div class="right-content clearfix">
+                   <div class="float-element">
+                      <div style="float: left;max-width: 400px;text-align: right;margin-top: 10px;">
+                         <div style="margin-top: 5px;">
+                            <em>
+                            <span style="font-weight: 900;font-size: 150%;">
+                               କୃଷି ଓ କୃଷକ ସଶକ୍ତିକରଣ ବିଭାଗ
+                            ଓଡିଶା ସରକାର 
+                            </span>
+                         </em>
+                         </div>
+                         <div style="margin-top: 5px;">
+                            <em>
+                               <span style="font-size: 140%;">
+                                  Department of Agriculture & Farmers' Empowerment 
+                            Government of Odisha
+                               </span>
+                            </em>
+                         </div>
+                      </div>
+                      <div style="float: right;">
+                         <a class="" target="_blank" href="https://swachhbharat.mygov.in/" title="Department of Agriculture & Farmers' Empowerment Government of Odisha">                           
+                         
+                            <img src="images/logo2.png" style="height: 95px;" alt="Farmers' Empowerment"></a>
+                      </div>
+                   </div>
+                </div>
+             </div>
+         </div>
+      </section>
+      <!--/.header-wrapper-->
+      <section class="wrapper megamenu-wraper">
+        <p style="display: none;">Megamenu</p>
+        <div class="container common-container four_content">
+           <p class="showhide" ><em></em><em></em><em></em></p>
+           <nav class="main-menu clearfix" id="main_menu" style="">
+              <ul class="nav-menu">
+                <li class="nav-item"> <a href="#" class="home"><i class="fa fa-home" aria-hidden="true"></i></a> </li>
+                <li class="nav-item"><a href="#guidelines">Guidelines</a></li>
+                <li class="nav-item"><a href="#locationId">Location</a></li>
+                <li class="nav-item"><a href="#loginId">Login</a></li>
+              </ul>
+           </nav>
+           <nav class="main-menu clearfix" id="overflow_menu">
+              <ul class="nav-menu clearfix">
+              </ul>
+           </nav>
+        </div>
+     </section>
+   </header>
+   <!--/.nav-wrapper-->
+    <section class="wrapper banner-wrapper">
+        <h1 style="display: none">Banner</h1>
+        <div id="flexSlider" class="flexslider">
+        <img class="fixed-banner" src="images/nabin_babu.png" alt="Nabin kumar pattnaik" title="Central Minister, Nabin Kumar Pattanik">
+        <h1 class="fixed-text">Welcome  <br>Crate distribution to women farmers</h1>
+        <ul class="slides">
+            <li> <img src="images/banner/image (2).jpg" class="banner-image" alt="home page slider5" title="Image 5 description"></li>
+            <li> <img src="images/banner/image (3).jpg" class="banner-image" alt="home page slider6" title="Image 6 description"></li>
+            <li> <img src="./images/banner/image (5).jpg" class="banner-image" alt="home page slide4" title="Image 4 description"></li>            
+            <li> <img src="./images/banner/image (1).jpg" class="banner-image" alt="home page slider7" title="Image 7 description"></li>
+        </ul>
+        </div>
+    </section>
+   <div class="wrapper" id="skipCont"></div>
+   <!--/#skipCont-->
+    <section id="fontSize" class="wrapper body-wrapper ">
+        <h2 style="display: none;">Body</h2>
+        <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott" id="guidelines">
+        <div class="container common-container four_content body-container top-body-container padding-top-bott2">
+            <div class="minister clearfix">
+                <div class="minister-box clearfix">
+                    <div class="minister-sub1">
+                    <div class="minister-image"><img src="images/minister.jpg" alt="Hon’ble Minister" title="Arun kumar sahoo"></div>
+                    <div class="min-info">
+                        <h4><a href="#" title="Minister Name">Dr. Arun kumar Sahoo</a></h4>
+                        <h5 class="prime"><a href="#" title="Hon’ble Prime Minister">Hon’ble Minister, Agriculture & Farmers' Empowerment</a></h5>
+                    </div>
+                    </div>
+                    <div class="minister-sub">
+                    <div class="minister-image"><img src="images/ias.jpg" alt="Hon’ble Minister" title="Ministry/Department,Minister Name"></div>
+                    <div class="min-info">
+                        <h4>Shri Raj Kumar Sharma, IAS</h4>
+                        <h5><a href="#" title="Minister of Coal"><span>Agriculture Production Commissioner</span> </a></h5>
+                    </div>
+                    </div>
+                    <div class="minister-sub">
+                    <div class="minister-image"><img src="images/principalSecretary.jpg" alt="minister of state coal and mines" title="Ministry/Department, Minister Name"></div>
+                    <div class="min-info">
+                        <h4>Dr. Saurabh Garg, IAS</h4>
+                        <h5><a href="#" title="Minister of State"><span>Principal Secretary to Govt. Agriculture & FE</span>
+                            </a>
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-content-wrapper">
+                <h2><span>Guidelines</span></h2>
+                <p class="banner-title-tag-line">Welcome to the website of Creates Distribution/Department, Government of Odisha.</p>
+                <p class="banner-content"> An informative text section that outlines the work portfolio of the ministry and the initiatives/ schemes and other useful purpose that the ministry website serves.
+                    An informative text section that outlines the work portfolio of the ministry and the initiatives/ schemes and other useful purpose that the ministry website serves.
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="wrapper home-banner" id="loginId">
+        <div class="container common-container four_content banner-container body-container top-body-container">
+            <div class="left-block">
+                <div class="left-col-2" style="width: 100%;">
+                    <div class="page-tab clearfix">
+                        <div class="page-tab-res clearfix">
+                           <div id="parentHorizontalTab" style="height: 386px !important;">
+                              <ul class="resp-tabs-list hor_1">
+                                 <li><a id="tab-list-1"> Security Guidelines</a></li>
+                                 <li><a>Beware of Phishing attacks</a></li>
+                              </ul>
+                              <div class="resp-tabs-container hor_1" >                           
+                                 <div class="clearfix" id="hor_1_tab_item-0">
+                                    <div class="content-wrapper">
+                                       <p class="text-slide pause" onclick="changeClass()"></p>
+                                       <div class="scroll-text scroll-left">
+                                          <ul class="list">
+                                             <li>                                                
+                                                <div class="list-content">Make sure,the URL in your browser address bar begins with "https".</div>
+                                             </li>
+                                             <li>                                                
+                                                <div class="list-content">Never write your password on a Post-It and stick it on your monitor, your address rolodex, under your desk pad, or anywhere else where it can be easily found. If you must write it down, keep it where no one can find it except for the authorized user.</div>
+                                             </li>
+                                             <li>                                                
+                                                <div class="list-content">Always lock/logout your computer while leaving.</div>
+                                             </li>
+                                             <li><div class="list-content">Never install unknown or unsolicited software in your computer.</div></li>
+                                             <li><div class="list-content">Never download pirated or cracked software.</div></li>
+                                             <li><div class="list-content">Always use a device firewall.</div></li>
+                                             <li><div class="list-content">Don't click on popup windows that tell you that your computer is infected with a virus.</div></li>
+                                          </ul>
+                                       </div>
+                                       
+                                    </div>
+                                 </div>
+                                 <div class="clearfix" id="hor_1_tab_item-1">
+                                    <div class="content-wrapper">
+                                       <p class="text-slide01 pause" onclick="changeClass01()"></p>
+                                       <div class="scroll-text01 scroll-left">
+                                          <ul class="list">
+                                             <li>
+                                                <div class="list-content">Phishing is a fraudulent attempt, usually made through email, phone calls, SMS etc seeking your personal and confidential information. </div>
+                                             </li>
+                                             <li>
+                                                <div class="list-content">The department or any of its representative never sends you email/SMS or calls you over phone to get your personal information,password or one time SMS (high security) password. Any such e-mail/SMS or phone call is an attempt to fraudulently access your account. Never respond to such email/SMS or phone call.</div>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="banner-right-wrapper">
+                <div class="banner-box-wrapper">
+                    
+                        <form method="POST" action="/login" class="login-form" autocomplete="OFF" id="loginForm">
+                            <h1>Login</h1>
+                            <hr>
+                            <div class="inputb">
+                                <label for="userId">User ID:</label>
+                                <input class="forminput" type="text" id="userId" name="userId">
+                                <span data-placeholder-1="User ID" data-placeholder-2="User ID:"></span>
+                            </div>
+                            <div class="inputb">
+                                <label for="password">Password:</label>
+                                <input class="forminput hide-pwd" type="password" id="password" name="password">
+                                <span data-placeholder-1="Password" data-placeholder-2="Password:"></span>
+                            </div>
+                            <input type="button" class="loginbtn" value="Login" onclick="login();">
+                            <div class="bottom-text">
+                                <span class="forgotpwd">Forgot <a href="#">Password</a>?</span><br>
+                            </div>
+                        </form>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="wrapper home-banner" id="locationId">
+        <div class="wrapper home-btm-slider">
+           <div class="container common-container four_content gallery-container">
+              <div class="gallery-area clearfix" style="width: 100%;">
+                 <div class="gallery-heading">
+                    <h3>Location</h3>
+                 </div>
+                 <div class="gallery-holder">
+                    <div id="galleryCarousel" class="flexslider">
+                       <ul class="slides" style="width: 100%;">
+                          <li data-thumb-alt="Slide 1">
+                             <div class="map">
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14970.285050303864!2d85.84123959999998!3d20.2766083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909fe3f1d54ab%3A0x86b5ec8ab8e9a52f!2sOrissa%20Agro%20Industries%20Corpn!5e0!3m2!1sen!2sin!4v1612065279632!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                           </div>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <!-- <div class="gallery-right">
+                 <div class="video-heading">
+                    <h3>Contact us</h3>
+                 </div>
+                 <p class="banner-content"><br><br> H.B Colony, Satya Nagar, Bhubaneswar, Odisha 751007
+                  <br>
+                  Telephone:0674 253 1276</p>
+                 <div class="video-wrapper">
+                        <p>OAIC</p>
+                       <span>Your browser does not support HTML5 video.</span>
+                    </video>
+                 </div>
+              </div> -->
+           </div>
+        </div>
+    </section>
+   <!--/.body-wrapper-->
+   <!--/.banner-wrapper-->
+    <section class="wrapper carousel-wrapper">
+        <h2 style="display: none;">Carousel</h2>
+        <div class="container common-container four_content carousel-container">
+        <div id="flexCarousel" class="flexslider carousel">
+            <ul class="slides">
+                <li style="width: 216px !important;"><a target="_blank" href="https://odisha.gov.in/" title="Data portal, External Link that opens in a new window" ><img style="margin-top: 20%;" src="images/brandLogo/odisha-govt.png" alt="Odisha.gov.in" ></a></li>
+                <li><a target="_blank" href="https://odishafarmmachinery.nic.in/" title="Data portal, External Link that opens in a new window" ><img src="images/brandLogo/farm-mechanisation.png" alt="Data portal" style="width: 50%;margin-top: 10%;margin-left: 15%;"></a></li>
+                <li><a target="_blank" href="https://odishafarmmachinery.nic.in/jalanidhi/Welcome.aspx" title="Data portal, External Link that opens in a new window" ><img src="images/brandLogo/jl2.jpg" alt="Data portal" style="margin-top: 23%;height: 50px;"></a></li>
+                <li><a target="_blank" href="http://digitalindia.gov.in/" title="Digital India, External Link that opens in a new window"><img src="assets/images/carousel/digital-india.png" alt="Digital India"></a></li>
+                  <!-- <li><a target="_blank" href="http://www.makeinindia.com/" title="Make In India, External Link that opens in a new window"> <img src="assets/images/carousel/makeinindia.png" alt="Make In India"></a></li> -->
+                  <!-- <li><a target="_blank" href="http://india.gov.in/" title="National Portal of India, External Link that opens in a new window"><img src="assets/images/carousel/india-gov.png" alt="National Portal of India"></a></li> -->
+                  <!-- <li><a target="_blank" href="http://goidirectory.nic.in/" title="GOI Web Directory, External Link that opens in a new window"><img src="assets/images/carousel/goidirectory.png" alt="GOI Web Directory"></a></li> -->
+                  <!-- <li><a target="_blank" href="https://data.gov.in/" title="Data portal, External Link that opens in a new window" ><img src="assets/images/carousel/data-gov.png" alt="Data portal"></a></li> -->
+                  <!-- <li><a target="_blank" href="https://mygov.in/" title="MyGov, External Link that opens in a new window"><img src="assets/images/carousel/mygov.png" alt="MyGov Portal"></a></li> -->
+               
+            </ul>
+        </div>
+        </div>
+    </section>
+   <!--/.carousel-wrapper-->
+    <footer class="wrapper footer-wrapper">
+        <div class="footer-top-wrapper">
+        <div class="container common-container four_content footer-top-container">
+            <ul>
+                <li><a href="index.html">Website Policies</a></li>
+                <li><a href="index.html">Help</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+                <li><a href="index.html">Terms and Conditions </a></li>
+                <li><a href="index.html">Feedback</a></li>
+                <li><a href="index.html">Disclaimer</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="footer-bottom-wrapper">
+        <div class="container common-container four_content footer-bottom-container">
+            <div class="footer-content clearfix">
+                <div class="copyright-content"> <strong>Disclaimer: </strong> 
+                    <span>The information contained in this website is for general information purposes only and is provided by Odisha Agro Instrutries corporation Ltd. While we endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</span> 
+                    <br>
+                    <span>The Site is best viewed in 1024 X 768 resolution and compatable browsers IE11+, Mozilla Firefox, Google Chrome, Opera, Safari. Some features of this site may not work correctly in older version of browsers.</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="container common-container four_content footer-bottom-container">
+            <div class="footer-content clearfix">
+                <div class="copyright-content"> Website Content Managed by <strong>Odisha Agro Industries Corporation, </strong> <span>Designed by <a target="_blank" title="NIC, External Link that opens in a new window" href="http://www.nic.in/"><strong>National Informatics Centre, Odisha</strong></a><strong> ( NIC )</strong></span> </div>
+                
+            </div>
+        </div>
+        </div>
+    </footer>
+   <!--/.footer-wrapper-->
+   <script src="assets/js/jquery-2.1.1.min.js"></script>
+   <script src="assets/js/jquery-accessibleMegaMenu.js"></script>
+   <script src="assets/js/framework.js"></script>
+   <script src="assets/js/jquery.flexslider.js"></script>
+   <script src="assets/js/font-size.js"></script>
+   <script src="assets/js/swithcer.js"></script>
+   <script src="theme/js/ma5gallery.js"></script>
+   <script src="assets/js/megamenu.js"></script>
+   <script src="theme/js/easyResponsiveTabs.js"></script>
+   <script src="theme/js/custom.js"></script>
+
+
+   <script src="js/SHA-256.js"></script>
+   <script>
+       const saltValue = {};
+       function getUniqueSaltValue() {
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                   const response = JSON.parse(this.responseText);
+                   saltValue.slt = response.saltValue;
+               }
+           };
+           xhttp.open("GET", `/getSaltValue`, true);
+           xhttp.send();
+       }
+       // getUniqueSaltValue();
+       function login() {
+           var userId = document.getElementById('userId').value;
+           var password = document.getElementById('password').value;
+           if( (userId !== '') && (password !== '') ) {
+               // document.getElementById('password').value = SHA256(SHA256(password) + saltValue.slt);
+               document.getElementById('password').value = SHA256(password);
+               document.getElementById('loginForm').submit();
+           } else {
+               alert('Please enter valid credentials.');
+           }
+       }
+   </script>
+   
+   <script>
+    $(".inputb input").on("focus", function() {
+        $(this).addClass("focus");
+    });
+    $(".inputb input").on("blur", function() {
+        if($(this).val() == "") {
+            $(this).removeClass("focus");
+        }
+    });
+</script>
+</body>
+
+<!-- Mirrored from uxdt.nic.in/wp-content/uploads/templates/template5/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2021 11:45:34 GMT -->
+
+</html>

@@ -1,0 +1,96 @@
+<form [formGroup]="supplierForm" #supplierFormId>
+
+    <div class="row">
+        <div class="col-md-6">
+                <div class="form-group">
+                        <label for="workOrderNo">Work-order number <span color="warn" class="asterisk-mark">*</span>:</label>
+                        <input type="text" class="form-control" id="workOrderNo" name="workOrderNo" (keyup)="checkWorkOrderExistance()"
+                            placeholder="Enter work-order number of supplier" formControlName='workOrderNo'>
+                            <span class='alert alert-danger' *ngIf='isDuplicateWONo'> 
+                                <span >This work-order number already exist.</span>
+                            </span>
+                            <div *ngIf="workOrderNo.invalid && (workOrderNo.dirty || workOrderNo.touched)" class="alert alert-danger">
+                                <div *ngIf="workOrderNo.errors.required">
+                                    Work-order number is required.
+                                </div>
+                            </div>
+                </div>
+                <div class="form-group">
+                    <label for="firmName">Firm name <span class="asterisk-mark">*</span>:</label>
+                    <input type="text" class="form-control" id="firmName" placeholder="Enter firm name of supplier"
+                        formControlName='firmName'>
+        
+                        <div *ngIf="firmName.invalid && (firmName.dirty || firmName.touched)" class="alert alert-danger">
+                            <div *ngIf="firmName.errors.required">
+                                Firm name is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="panNo">PAN number <span class="asterisk-mark">*</span>:</label>
+                    <input id="panNo" class="form-control" type="text" placeholder="Enter pan number of supplier"
+                                        formControlName="panNo" required >
+                                    <div *ngIf="panNo.invalid && (panNo.dirty || panNo.touched)" class="alert alert-danger">
+                                            <div *ngIf="panNo.errors.required">
+                                                PAN number is required.
+                                            </div>
+                                            <div *ngIf="panNo.errors.pattern">
+                                                PAN number must be numeric value.
+                                            </div>
+                                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="GSTN"> GSTN <span class="asterisk-mark">*</span>:</label>
+                    <input type="text" class="form-control" id="GSTN" placeholder="Enter GSTN of supplier"
+                        formControlName='GSTN'>
+                        <div *ngIf="GSTN.invalid && (GSTN.dirty || GSTN.touched)" class="alert alert-danger">
+                            <div *ngIf="GSTN.errors.required">
+                                GSTN number is required.
+                            </div>
+                        </div>
+                </div>
+        </div>
+        <!-- RIGHT SIDE -->
+        <div class="col-md-6">
+                <div class="form-group">
+                    <label for="itemQuantity">Item quantity <span class="asterisk-mark">*</span>:</label>
+                    <input type="number" class="form-control" id="itemQuantity" name="itemQuantity"
+                        placeholder="Enter crate quantity " formControlName='itemQuantity'>
+                        
+                        <div *ngIf="itemQuantity.invalid && (itemQuantity.dirty || itemQuantity.touched)" class="alert alert-danger">
+                            <div *ngIf="itemQuantity.errors.required">
+                                Minimum quantity is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="emailId"> Email <span class="asterisk-mark">*</span>:</label>
+                    <input type="email" class="form-control" id="emailId" placeholder="Enter email-id of supplier" formControlName='emailId'>
+                        <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert alert-danger">
+                            <div *ngIf="emailId.errors.required">
+                                Email-ID is required.
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobileNo">Mobile number <span class="asterisk-mark">*</span>:</label>
+                    <input type="text" class="form-control" id="mobileNo" placeholder="Enter mobile number of supplier" formControlName='mobileNo'>
+                        <div *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)" class="alert alert-danger">
+                            <div *ngIf="mobileNo.errors.required">
+                                Mobile number is required.
+                            </div>
+                            <div *ngIf="mobileNo.errors.pattern">
+                                Mobile number must be numeric value.
+                            </div>
+                            <div *ngIf="mobileNo.errors.minlength">
+                                Mobile number must be at least 10 characters long.
+                            </div>
+                            <div *ngIf="mobileNo.errors.maxlength">
+                                Mobile number must be at least 10 characters long.
+                            </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</form>
